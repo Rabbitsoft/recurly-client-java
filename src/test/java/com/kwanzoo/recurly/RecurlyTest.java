@@ -1,5 +1,8 @@
 package com.kwanzoo.recurly;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
+
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -8,22 +11,12 @@ import java.util.Date;
 import java.util.Properties;
 import java.util.Random;
 
-import junit.framework.TestCase;
-
 import org.apache.commons.lang.RandomStringUtils;
+import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
-import com.kwanzoo.recurly.Account;
-import com.kwanzoo.recurly.Base;
-import com.kwanzoo.recurly.BillingInfo;
-import com.kwanzoo.recurly.Charge;
-import com.kwanzoo.recurly.CreditCard;
-import com.kwanzoo.recurly.InvoiceDetailed;
-import com.kwanzoo.recurly.Invoices;
-import com.kwanzoo.recurly.Subscription;
-import com.kwanzoo.recurly.TransparentResult;
-
-public class RecurlyTest extends TestCase {
+public class RecurlyTest {
 
 	private String[] plans = {};
 	private String existingTransparentPostResult = "";
@@ -37,7 +30,7 @@ public class RecurlyTest extends TestCase {
 		return RandomStringUtils.randomNumeric(n);
 	}
 
-	@Override
+	@Before
 	public void setUp() {
 		Properties props = new Properties();
 		try {
@@ -65,7 +58,7 @@ public class RecurlyTest extends TestCase {
 		}
 	}
 
-	@Test
+	@Ignore @Test
 	public void test0() throws Exception {
 		if (!"".equals(existingTransparentPostResult)) {
 			Subscription result = TransparentResult.get(existingTransparentPostResult);
@@ -76,7 +69,7 @@ public class RecurlyTest extends TestCase {
 	}
 
 	// Manipulate Accounts
-	@Test
+	@Ignore @Test
 	public void test1() throws Exception {
 
 		// create fresh account
@@ -142,7 +135,7 @@ public class RecurlyTest extends TestCase {
 	}
 
 	// Manipulate billing info
-	@Test
+	@Ignore @Test
 	public void test2() throws Exception {
 
 		// create fresh account
@@ -276,7 +269,7 @@ public class RecurlyTest extends TestCase {
 	}
 
 	// Manipulate subscriptions
-	@Test
+	@Ignore @Test
 	public void test3() throws Exception {
 		// create fresh account
 		final String accountCode = getRandomAlphaNumString(5);
