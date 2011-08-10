@@ -1,4 +1,4 @@
-package com.kwanzoo.recurly.test;
+package com.kwanzoo.recurly;
 
 import java.io.FileInputStream;
 import java.io.IOException;
