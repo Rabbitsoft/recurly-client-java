@@ -107,7 +107,6 @@ public abstract class Base{
 		if(status == null){
 			final int statusCode = response.getStatus();
 			if(UNPROCESSABLE_ENTITY_HTTP_CODE == statusCode){
-				System.out.println(response.getEntity(String.class));
 				throw new UnprocessableEntityException(response);
 			}
 			else{
