@@ -9,6 +9,10 @@ import java.util.Date;
 import java.util.Properties;
 import java.util.Random;
 
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Unmarshaller;
+
 import junit.framework.TestCase;
 
 import org.apache.commons.lang.RandomStringUtils;
@@ -25,10 +29,6 @@ import com.kwanzoo.recurly.InvoiceDetailed;
 import com.kwanzoo.recurly.Invoices;
 import com.kwanzoo.recurly.Subscription;
 import com.kwanzoo.recurly.TransparentResult;
-
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.JAXBException;
-import javax.xml.bind.Unmarshaller;
 
 public class RecurlyTest extends TestCase {
 
