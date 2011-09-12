@@ -31,8 +31,8 @@ import com.sun.jersey.core.util.Base64;
 
 public abstract class Base{
 	private static final String BaseURI = "https://app.recurly.com";
-	private static final WebResource webResource;
-	private static String base64AuthStr = "";
+	protected static final WebResource webResource;
+	protected static String base64AuthStr = "";
 	private static final int UNPROCESSABLE_ENTITY_HTTP_CODE = 422;
 	
 	static{

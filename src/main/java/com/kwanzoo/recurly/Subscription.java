@@ -2,6 +2,7 @@ package com.kwanzoo.recurly;
 
 import java.util.Date;
 
+import javax.ws.rs.core.MediaType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -88,5 +89,13 @@ public class Subscription extends Base{
 
 	public Subscription(final String accountCode){
 		this.accountCode = accountCode;
+	}
+	
+	public void delete(Refund refund) throws Exception {
+			webResource.queryParam("refund", refund.toString())
+		     	.path(getResourcePath())
+		     	.header("Authorization", base64AuthStr)
+		     	.accept(MediaType.APPLICATION_XML_TYPE)
+		     	.delete();
 	}
 }
