@@ -92,7 +92,7 @@ public class Subscription extends Base{
 	}
 	
 	public void delete(Refund refund) throws Exception {
-		webResource.queryParam("refund", refund.toString())
+		webResource.queryParam("refund", refund.toString().toLowerCase())
 	     	.path(getResourcePath())
 	     	.header("Authorization", base64AuthStr)
 	     	.accept(MediaType.APPLICATION_XML_TYPE)
