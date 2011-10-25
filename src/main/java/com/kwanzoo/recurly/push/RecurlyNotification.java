@@ -29,7 +29,7 @@ public class RecurlyNotification {
 		
 		typeMapping.put("new_subscription_notification", NewSubscriptionNotification.class);
 		typeMapping.put("updated_subscription_notification", UpdateSubscriptionNotification.class);
-		typeMapping.put("expired_subscription_notification", CancelSubscriptionNotification.class);
+		typeMapping.put("expired_subscription_notification", ExpiredSubscriptionNotification.class);
 		typeMapping.put("canceled_subscription_notification", CancelSubscriptionNotification.class);
 		typeMapping.put("renewed_subscription_notification", RenewedSubscriptionNotification.class);
 
@@ -69,7 +69,7 @@ public class RecurlyNotification {
 	}
 
 	public String getType() {
-		return mappedObject.getClass().getName();
+		return mappedObject.getClass().getSimpleName();
 	}
 	
 	@SuppressWarnings("unchecked")
