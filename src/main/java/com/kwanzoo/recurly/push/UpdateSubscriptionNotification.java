@@ -4,7 +4,7 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 import com.kwanzoo.recurly.Account;
-import com.kwanzoo.recurly.Transaction;
+import com.kwanzoo.recurly.Subscription;
 
 @XmlRootElement(name = "updated_subscription_notification")
 public class UpdateSubscriptionNotification {
@@ -12,5 +12,5 @@ public class UpdateSubscriptionNotification {
 	public Account account;
 	
 	@XmlElement
-	public Transaction transaction;
+	public Subscription subscription;
 }
