@@ -60,6 +60,9 @@ public class Subscription extends Base{
 	
 	@XmlElement(name="trial_ends_at") 				
 	public Date trialEndsAt;
+	
+	@XmlElement(name="currency") 						
+	public String currency;
 
 	private static String getResourcePath(String accountCode){
 		return Account.pluralResourceName + "/" + accountCode + "/" + resourceName;

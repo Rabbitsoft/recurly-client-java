@@ -46,6 +46,9 @@ public class BillingInfo extends Base{
     @XmlElement(name="zip")
     public String zip;
 
+    @XmlElement(name="vat_number")
+    public String vatNumber;
+
     @XmlElement(name="country")
     public String country;
 
