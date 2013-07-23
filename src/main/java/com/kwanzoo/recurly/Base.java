@@ -30,13 +30,13 @@ import com.sun.jersey.client.urlconnection.HTTPSProperties;
 import com.sun.jersey.core.util.Base64;
 
 public abstract class Base{
-	private static final String BaseURI = "https://app.recurly.com";
-	protected static final WebResource webResource;
+	protected static final String BaseURI = "https://app.recurly.com";
+	protected static WebResource webResource;
 	protected static String base64AuthStr = "";
 	private static final int UNPROCESSABLE_ENTITY_HTTP_CODE = 422;
 	
 	static{
-		webResource = getNewWebResource();
+		webResource = getNewWebResource(BaseURI);
 	}
 	
 	private static TrustManager[] getTrustManager(){
@@ -82,10 +82,12 @@ public abstract class Base{
         };
 	}
 
-	private static WebResource getNewWebResource(){
+	private static WebResource getNewWebResource(String BaseURI) {
 		final ClientConfig config = new DefaultClientConfig();
 		config.getProperties().put(HTTPSProperties.PROPERTY_HTTPS_PROPERTIES, new HTTPSProperties(getHostNameVerifier(), getSSLContext()));
-        return Client.create(config).resource(BaseURI);
+        Client client = Client.create(config);
+//		client.addFilter(new LoggingFilter(System.out));
+		return client.resource(BaseURI);
 	}
 
 	public static WebResource.Builder getWebResourceBuilder(final String path){
@@ -99,6 +101,10 @@ public abstract class Base{
 	//This method needs to be invoked only once, just before performing the first recurly operation
 	public static void setAuth(final String recurlyUsername, final String recurlyPassword){
 		base64AuthStr = new String(Base64.encode(recurlyUsername + ":" + recurlyPassword));
+	}
+
+	public static void setBaseURI(String BaseURI) {
+		webResource = getNewWebResource(BaseURI);
 	}
 
 	//Translates a recurly response to an appropriate recurly exception object.

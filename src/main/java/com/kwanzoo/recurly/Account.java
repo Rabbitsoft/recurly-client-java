@@ -9,7 +9,7 @@ import com.sun.jersey.api.client.GenericType;
 import com.sun.jersey.api.client.UniformInterfaceException;
 
 @XmlRootElement(name="account")
-public class Account extends Base{
+public class Account extends Base {
 	public static String pluralResourceName = "accounts";
 
 	//Required
