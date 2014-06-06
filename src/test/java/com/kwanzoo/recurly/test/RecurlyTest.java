@@ -65,6 +65,7 @@ public class RecurlyTest extends TestCase {
 			
 			currentYear = Integer.parseInt(new SimpleDateFormat("yyyy").format(new Date()));
 			
+			Base.setBaseURI("https://api.recurly.com/v2");
 			Base.setAuth(username, password);
 		}
 		catch (IOException e) {
